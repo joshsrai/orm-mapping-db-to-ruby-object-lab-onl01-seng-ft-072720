@@ -66,9 +66,10 @@ class Student
     sql = <<-SQL
     SELECT *
     FROM students
-    WHERE grade = ?
-    SQL
-    DB[:conn].execute(sql, 9)
+    WHERE grade = 9;
+      SQL
+    info = DB[:conn].execute(sql)
+    info.map{|i| self.new_from_db(i)}
   end
   
     def self.students_below_12th_grade

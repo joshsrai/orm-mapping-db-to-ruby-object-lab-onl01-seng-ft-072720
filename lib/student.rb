@@ -98,7 +98,7 @@ class Student
       SELECT *
       FROM students
       WHERE students.grade = 10
-      ORDER BY student.id
+      ORDER BY students.id
       LIMIT 1;
     SQL
     DB[:conn].execute(sql).map { |row| self.new_from_db(row)}.first
